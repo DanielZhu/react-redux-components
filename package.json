@@ -1,0 +1,52 @@
+{
+  "name": "redux-components",
+  "version": "1.0.0",
+  "description": "Simple react components for usage with redux",
+  "main": "src/index.js",
+  "scripts": {
+    "a": "git add . && git commit --amend -C HEAD && git push -f",
+    "start": "node dev/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigonehring/redux-components.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "components",
+    "es6",
+    "babel",
+    "webpack"
+  ],
+  "author": "Rodrigo Nehring",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigonehring/redux-components/issues"
+  },
+  "homepage": "https://github.com/rodrigonehring/redux-components#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "css-loader": "^0.25.0",
+    "express": "^4.14.0",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.1.0-beta.23",
+    "webpack-dev-middleware": "^1.8.1",
+    "webpack-hot-middleware": "^2.12.2"
+  }
+}
