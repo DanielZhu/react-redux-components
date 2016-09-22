@@ -11,8 +11,9 @@ import Notify from './components/notify'
 class App extends Component {
 
 	openNotify() {
-    this.props.actions.addNotify();
-		console.log('open notify')
+    this.props.actions.addNotify('Message', {
+      delay: 3000,
+    });
 	}
 
   render() {

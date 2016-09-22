@@ -11,22 +11,18 @@ class Notify extends Component {
 
 	constructor(props) {
 		super(props);
-		console.log(props)
-	}
-
-	componentDidUpdate() {
-		console.log(this.props.notify)
 	}
 
 	render() {
 		return (
 			<div className={styles.notify}>
-				{this.props.notify.items.map(({id, msg}) => {
+				{this.props.notify.items.map(({id, msg, config}) => {
 
 					let props = {
 						key: id,
 						closeAction: this.props.actions.removeNotify,
 						msg,
+						config,
 						id
 					}
 

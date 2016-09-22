@@ -10,11 +10,11 @@ export default function notify(state = initialState, {type, payload}) {
     	...state,
     	items: state.items.concat({
         id: new Date().getTime(),
-        msg: 'Ola2',
+        msg: payload.msg,
+        config: payload.config,
       })
     };
   case 'REMOVE_NOTIFY':
-    console.log(payload);
     return {
       ...state,
       items: state.items.filter(item => item.id !== payload)

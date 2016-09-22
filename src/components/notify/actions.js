@@ -1,8 +1,11 @@
 
-export function addNotify(config) {
+export function addNotify(msg, config) {
   return {
     type: 'ADD_NOTIFY',
-    config
+    payload: {
+    	msg,
+    	config
+    }
   }
 }
 

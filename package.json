@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/rodrigonehring/redux-components#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5"
