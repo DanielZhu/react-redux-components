@@ -5,3 +5,10 @@ export function addNotify(config) {
     config
   }
 }
+
+export function removeNotify(id) {
+  return {
+    type: 'REMOVE_NOTIFY',
+    payload: id
+  }
+}

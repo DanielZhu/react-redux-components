@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import * as NotifyActions from './components/notify/actions'
+
 import styles from './styles.css'
 
 //notify
