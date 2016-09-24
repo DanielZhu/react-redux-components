@@ -1,6 +1,6 @@
 {
-  "name": "redux-components",
-  "version": "1.0.0",
+  "name": "react-redux-components",
+  "version": "1.0.1",
   "description": "Simple react components for usage with redux",
   "main": "src/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodrigonehring/redux-components.git"
+    "url": "git+https://github.com/rodrigonehring/react-redux-components.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "Rodrigo Nehring",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rodrigonehring/redux-components/issues"
+    "url": "https://github.com/rodrigonehring/react-redux-components/issues"
   },
-  "homepage": "https://github.com/rodrigonehring/redux-components#readme",
+  "homepage": "https://github.com/rodrigonehring/react-redux-components#readme",
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.3.2",
