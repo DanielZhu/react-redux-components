@@ -1,0 +1,22 @@
+{
+    "parser": "babel-eslint",
+    "ecmaFeatures": {
+        "classes": true,
+        "jsx": true
+    },
+    "extends": "airbnb",
+    "plugins": [
+      "react"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "react/display-name": 1,
+      "globa-require": 0,
+      "react/prop-types": 0,
+      "react/jsx-filename-extension": 0,
+      "linebreak-style": 0
+    }
+}

@@ -1,48 +1,42 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as NotifyActions from './actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as NotifyActions from './actions';
 
-import styles from './notify.css'
+import styles from './notify.css';
+import Single from './single';
 
-import Single from './single'
-
+// eslint-disable-next-line react/prefer-stateless-function
 class Notify extends Component {
 
-	constructor(props) {
-		super(props);
-	}
+  render() {
+    return (
+      <div className={styles.notify}>
+        {this.props.notify.items.map(({ id, msg, config }) => {
+          const props = {
+            key: id,
+            closeAction: this.props.actions.removeNotify,
+            msg,
+            config,
+            id,
+          };
 
-	render() {
-		return (
-			<div className={styles.notify}>
-				{this.props.notify.items.map(({id, msg, config}) => {
-
-					let props = {
-						key: id,
-						closeAction: this.props.actions.removeNotify,
-						msg,
-						config,
-						id
-					}
-
-					return <Single {...props} />
-
-				})}
-			</div>
-		)
-	}
+          return <Single {...props} />;
+        })}
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
   return {
-    notify: state.components.notify
+    notify: state.components.notify,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(NotifyActions, dispatch)
+    actions: bindActionCreators(NotifyActions, dispatch),
   };
 }
 

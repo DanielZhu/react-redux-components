@@ -1,11 +1,10 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import createLogger from 'redux-logger'
-import thunk from 'redux-thunk'
-import rootReducer from './reducers'
+import { createStore, applyMiddleware, compose } from 'redux';
+import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
 
-
+/*  eslint global-require: 0  */
 function configureStore(initialState) {
-
   const store = createStore(
     rootReducer,
     initialState,
@@ -16,6 +15,7 @@ function configureStore(initialState) {
   );
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  //
   if (module.hot) {
     module.hot.accept('./reducers', () =>
       store.replaceReducer(require('./reducers'))
@@ -23,6 +23,6 @@ function configureStore(initialState) {
   }
 
   return store;
-};
+}
 
-export default configureStore
+export default configureStore;

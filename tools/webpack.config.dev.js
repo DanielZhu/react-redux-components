@@ -32,6 +32,9 @@ module.exports = {
         loader: ['style?sourceMap',
         'css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]']
       },
+    ],
+    preLoaders: [
+      {test: /\.js$/, loader: 'eslint-loader', exclude: '/node_modules/'}
     ]
   }
 };
