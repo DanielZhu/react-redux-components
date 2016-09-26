@@ -16,7 +16,7 @@ class App extends Component {
 
   openNotify() {
     this.props.actions.addNotify('Message', {
-      delay: 3000,
+      delay: 30000,
     });
   }
 

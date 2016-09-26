@@ -1,46 +1,80 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as NotifyActions from './actions';
+import NotifyComponent from './single';
 
-import styles from './notify.css';
-import Single from './single';
+export default class Single extends Component {
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Notify extends Component {
+  constructor(props) {
+    super(props);
+    this.timers = [];
+    this.startClosing = this.handleTimer.bind(this);
+
+    this.config = {
+      close: props.config.close !== undefined ? this.props.close : true,
+      delay: props.config.delay || 1000,
+      delayIn: 0,
+      delayOut: 300,
+    };
+
+    this.state = {
+      transitionState: 'opening',
+    };
+  }
+
+
+  componentDidMount() {
+    if (this.config.close) {
+      this.timers.push(
+        setTimeout(this.handleTimer.bind(this),
+        this.config.delay)
+      );
+    }
+
+    this.timers.push(
+      setTimeout(this.opened.bind(this),
+      this.config.delayIn
+    ));
+  }
+
+  componentWillUnmount() {
+    this.cleanTimer();
+  }
+
+  selfDestruct() {
+    this.props.closeAction(this.props.id);
+  }
+
+  opened() {
+    this.setState({
+      ...this.state,
+      transitionState: 'opened',
+    });
+  }
+
+  cleanTimer() {
+    this.timers.forEach(item => clearTimeout(item));
+  }
+
+  handleTimer() {
+    this.cleanTimer();
+
+    this.setState({
+      ...this.state,
+      transitionState: 'closing',
+    });
+
+    this.timers.push(
+      setTimeout(this.selfDestruct.bind(this),
+      this.config.delayOut
+    ));
+  }
 
   render() {
     return (
-      <div className={styles.notify}>
-        {this.props.notify.items.map(({ id, msg, config }) => {
-          const props = {
-            key: id,
-            closeAction: this.props.actions.removeNotify,
-            msg,
-            config,
-            id,
-          };
-
-          return <Single {...props} />;
-        })}
-      </div>
+      <NotifyComponent
+        msg={this.props.msg}
+        closeAction={this.startClosing}
+        transitionState={this.state.transitionState}
+      />
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    notify: state.components.notify,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(NotifyActions, dispatch),
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Notify);

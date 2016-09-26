@@ -1,11 +1,12 @@
-// import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
+import { ADD_NOTIFY, REMOVE_NOTIFY } from './types';
+
 const initialState = {
   items: [],
 };
 
 export default function notify(state = initialState, { type, payload }) {
   switch (type) {
-    case 'ADD_NOTIFY':
+    case ADD_NOTIFY:
       return {
         ...state,
         items: state.items.concat({
@@ -14,7 +15,7 @@ export default function notify(state = initialState, { type, payload }) {
           config: payload.config,
         }),
       };
-    case 'REMOVE_NOTIFY':
+    case REMOVE_NOTIFY:
       return {
         ...state,
         items: state.items.filter(item => item.id !== payload),
