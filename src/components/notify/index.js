@@ -6,7 +6,7 @@ import * as NotifyActions from './actions';
 import styles from './notify.css';
 import Single from './Notify';
 
-const Notify = ({ notify, actions }) => (
+const Notify = ({ notify, actions }) =>
   <div className={styles.notify}>
 
     {notify.items.map(({ id, msg, config }) => {
@@ -21,8 +21,7 @@ const Notify = ({ notify, actions }) => (
       return <Single {...props} />;
     })}
 
-  </div>
-);
+  </div>;
 
 function mapStateToProps(state) {
   return {

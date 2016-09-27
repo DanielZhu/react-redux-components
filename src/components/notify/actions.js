@@ -6,6 +6,7 @@ export function addNotify(msg, config) {
     payload: {
       msg,
       config,
+      closing: false,
     },
   };
 }
