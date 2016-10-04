@@ -1,6 +1,9 @@
 # redux-components
 Simple components for usage with react and redux.
 
+### Example:
+[https://rodrigonehring.github.io/react-redux-components/](https://rodrigonehring.github.io/react-redux-components/)
+
 ## Folder structure:
 maybe in the future i will create a dist folder...
 ```
@@ -30,13 +33,13 @@ project
 ## Todo:
 - [x] create a repository and a readme
 
-- [ ] initial folder structure
+- [x] initial folder structure
+
+- [x] configure webpack, react and redux for dev mode
 
 - [ ] commitizen
 
-- [ ] configure webpack, react and redux for dev mode
-
-- [ ] notify component
+- [ ] notify component - doing!
 
 - [ ] modal component
 
