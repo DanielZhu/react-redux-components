@@ -9,10 +9,12 @@ import Single from './Notify';
 const Notify = ({ notify, actions }) =>
   <div className={styles.notify}>
 
-    {notify.items.map(({ id, msg, config }) => {
+    {notify.items.map(({ id, msg, config, closing }) => {
       const props = {
         key: id,
-        closeAction: actions.removeNotify,
+        close: actions.close,
+        destroy: actions.destroy,
+        closing,
         msg,
         config,
         id,

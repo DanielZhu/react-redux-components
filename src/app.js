@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as NotifyActions from './components/notify/actions';
@@ -6,33 +6,22 @@ import * as NotifyActions from './components/notify/actions';
 import styles from './styles.css';
 import Notify from './components/notify';
 
-class App extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.open = this.openNotify.bind(this);
-  }
-
-  openNotify() {
-    this.props.actions.addNotify('Message', {
-      delay: 30000,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <Notify />
-        <div className={styles.container}>
-          <button onClick={this.open}>
-            Open notify
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+const App = ({ actions }) => (
+  <div>
+    <Notify />
+    <div className={styles.container}>
+      <button onClick={() => actions.addNotify('Olar!11! success', { delay: 100000, type: 'success' })}>
+        Open notify success
+      </button>
+      <button onClick={() => actions.addNotify('Olar!11! error', { delay: 10000, type: 'error' })}>
+        Open notify error
+      </button>
+      <button onClick={actions.closeAll}>
+        Close All
+      </button>
+    </div>
+  </div>
+);
 
 
 function mapStateToProps(state) {
@@ -40,7 +29,6 @@ function mapStateToProps(state) {
     state,
   };
 }
-
 
 function mapDispatchToProps(dispatch) {
   return {

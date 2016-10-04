@@ -1,4 +1,4 @@
-import { ADD_NOTIFY, REMOVE_NOTIFY } from './types';
+import { ADD_NOTIFY, REMOVE_NOTIFY, START_CLOSING, CLOSE_ALL } from './types';
 
 export function addNotify(msg, config) {
   return {
@@ -11,9 +11,22 @@ export function addNotify(msg, config) {
   };
 }
 
-export function removeNotify(id) {
+export function destroy(id) {
   return {
     type: REMOVE_NOTIFY,
     payload: id,
+  };
+}
+
+export function close(id) {
+  return {
+    type: START_CLOSING,
+    payload: id,
+  };
+}
+
+export function closeAll() {
+  return {
+    type: CLOSE_ALL,
   };
 }

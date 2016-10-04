@@ -39,3 +39,20 @@
 	opacity: 0;
 	transform: translateY(-200%);
 }
+
+.icon {
+  font-size: 60px;
+  display: inline-block;
+}
+
+.msg {
+  line-height: 60px;
+}
+
+.success .msg, .success .icon {
+  color: green;
+}
+
+.error .msg, .error .icon {
+  color: red;
+}
