@@ -64,6 +64,7 @@
     "karma-chai-plugins": "^0.8.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-cli": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
     "karma-htmlfile-reporter": "^0.3.4",
     "karma-mocha": "^1.2.0",
     "karma-mocha-reporter": "^2.2.0",

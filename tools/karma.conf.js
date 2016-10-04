@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = function (config) {
   config.set({
-    browsers: [ 'Chrome' ],
+    browsers: [ 'Firefox' ],
     // karma only needs to know about the test bundle
     files: [
       './tests.bundle.js'
@@ -10,6 +10,7 @@ module.exports = function (config) {
     frameworks: [ 'chai', 'mocha' ],
     plugins: [
       'karma-chrome-launcher',
+      'karma-firefox-launcher',
       'karma-chai',
       'karma-mocha',
       'karma-sourcemap-loader',
@@ -30,7 +31,7 @@ module.exports = function (config) {
       './tests.bundle.js': [ 'webpack', 'sourcemap' ]
     },
     reporters: [ 'dots' ],
-    singleRun: false,
+    singleRun: true,
     // webpack config object
     webpack: {
       devtool: 'inline-source-map',
