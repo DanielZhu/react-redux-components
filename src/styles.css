@@ -9,7 +9,7 @@ body {
   background: linear-gradient(to left, #B993D6 , #8CA6DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-button {
+.container button {
   background: #ecf0f1;
   border: none;
   padding: 15px 10px;
@@ -17,13 +17,13 @@ button {
   margin-right: 1px;
 }
 
-button:hover {
+.container button:hover {
   background: #2ecc71;
   cursor: pointer;
   color: #fff;
   padding: 15px 20px;
 }
 
-button:active, button:focus {
+.container button:active, .container button:focus {
   outline: none;
 }

@@ -51,7 +51,6 @@ export default class Single extends Component {
   }
 
   selfDestruct() {
-    console.log(this.state.transitionState);
     this.props.destroy(this.props.id);
   }
 

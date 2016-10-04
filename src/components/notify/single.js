@@ -1,6 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
+
 import styles from './notify.css';
+import IconSuccess from '../../icons/success';
+import IconError from '../../icons/error';
+import CloseIcon from '../../icons/close';
 
 const Component = ({ msg, transitionState, close, type }) => {
   const getClass = (state) => {
@@ -28,13 +32,13 @@ const Component = ({ msg, transitionState, close, type }) => {
   return (
     <div className={cx(getClass(transitionState), getType())}>
       <span className={styles.icon}>
-        !
+        { type === 'success' ? <IconSuccess /> : <IconError /> }
       </span>
       <span className={styles.msg}>
         {msg}
       </span>
       <button onClick={close}>
-        X
+        <CloseIcon width={15} height={15} />
       </button>
     </div>
   );
