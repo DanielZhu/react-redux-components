@@ -4,5 +4,26 @@
 }
 
 body {
-	background: #34495e; 
+	background: #B993D6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #B993D6 , #8CA6DB); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #B993D6 , #8CA6DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+button {
+  background: #ecf0f1;
+  border: none;
+  padding: 15px 10px;
+  transition: .3s ease;
+  margin-right: 1px;
+}
+
+button:hover {
+  background: #2ecc71;
+  cursor: pointer;
+  color: #fff;
+  padding: 15px 20px;
+}
+
+button:active, button:focus {
+  outline: none;
 }

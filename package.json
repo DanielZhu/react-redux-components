@@ -6,6 +6,7 @@
   "scripts": {
     "a": "git add . && git commit --amend -C HEAD && git push -f",
     "start": "./node_modules/.bin/nodemon --ignore src/ dev/server",
+    "build": "./node_modules/.bin/webpack --config ./tools/webpack.config.prod.js",
     "test": "./node_modules/.bin/karma start tools/karma.conf.js"
   },
   "repository": {
