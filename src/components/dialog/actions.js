@@ -6,11 +6,12 @@ export function registerDialog(id, config) {
     payload: {
       id,
       config,
+      open: false,
     },
   };
 }
 
-export function destroyDialog(id) {
+export function closeDialog(id) {
   return {
     type: RRC_DIALOG_CLOSE,
     payload: id,

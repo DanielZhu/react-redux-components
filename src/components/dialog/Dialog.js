@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Dialog = ({ children }) => (
+const Dialog = ({ children, open }) => (
   <div>
-    {children}
+    {children} <br />
+    {open ? 'sim' : 'nao'}
   </div>
 );
 

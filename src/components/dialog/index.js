@@ -7,10 +7,10 @@ import Dialog from './Dialog.js';
 
 
 class DialogContainer extends React.Component {
+
   constructor(props) {
     super(props);
-    this.q = 's';
-    // console.log(props);
+    this.praq = '';
   }
 
   componentDidMount() {
@@ -19,10 +19,13 @@ class DialogContainer extends React.Component {
   }
 
   render() {
+    const dialog = this.props.dialog.items.filter(item => item.id === this.props.id)[0];
+
     return (
       <div>
 
         <Dialog
+          open={dialog.open}
           children={this.props.children}
         />
 

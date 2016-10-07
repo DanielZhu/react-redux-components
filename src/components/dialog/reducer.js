@@ -1,47 +1,38 @@
-import { ADD_NOTIFY, REMOVE_NOTIFY, START_CLOSING, CLOSE_ALL } from './types';
+import { RRC_DIALOG_OPEN, RRC_DIALOG_CLOSE, RRC_DIALOG_REGISTER } from './types';
 
-const initialState = {
-  items: [],
-};
 
-export default function notify(state = initialState, { type, payload }) {
+export default function dialog(state = { items: [] }, { type, payload }) {
   switch (type) {
 
-    case ADD_NOTIFY:
-      return {
-        ...state,
-        items: state.items.concat({
-          id: new Date().getTime(),
-          msg: payload.msg,
-          config: payload.config,
-          closing: false,
-        }),
-      };
-
-    case REMOVE_NOTIFY:
-      return {
-        ...state,
-        items: state.items.filter(item => item.id !== payload),
-      };
-
-    case START_CLOSING:
+    case RRC_DIALOG_OPEN:
       return {
         ...state,
         items: state.items.map((item) => {
-          if (item.id === payload) {
-            return {
-              ...item,
-              closing: true,
-            };
-          }
-          return item;
+          console.log(item, payload);
+          if (item.id !== payload) return item;
+          return {
+            ...item,
+            open: true,
+          };
         }),
       };
 
-    case CLOSE_ALL:
+    case RRC_DIALOG_CLOSE:
       return {
         ...state,
-        items: state.items.map(item => ({ ...item, closing: true })),
+        items: state.items.map((item) => {
+          if (item.id !== payload) return item;
+          return {
+            ...item,
+            open: false,
+          };
+        }),
+      };
+
+    case RRC_DIALOG_REGISTER:
+      return {
+        ...state,
+        items: [].concat(state.items).concat(payload),
       };
 
     default:
