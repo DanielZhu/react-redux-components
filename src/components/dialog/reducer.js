@@ -4,7 +4,11 @@ import { RRC_DIALOG_OPEN, RRC_DIALOG_CLOSE, RRC_DIALOG_REGISTER } from './types'
 export default function dialog(state = { items: [] }, { type, payload }) {
   switch (type) {
 
-    case RRC_DIALOG_OPEN:
+    case RRC_DIALOG_OPEN: {
+      if (state.items.filter(item => item.open === true)[0]) {
+        console.error('Already have one dialog open!');
+        return state;
+      }
       return {
         ...state,
         items: state.items.map((item) => {
@@ -16,6 +20,7 @@ export default function dialog(state = { items: [] }, { type, payload }) {
           };
         }),
       };
+    }
 
     case RRC_DIALOG_CLOSE:
       return {

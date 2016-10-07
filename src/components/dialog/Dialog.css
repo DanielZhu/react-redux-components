@@ -1,0 +1,41 @@
+.container {
+	position: absolute;
+	z-index: 510;
+	width: 500px;
+	background: #ecf0f1;
+}
+
+.wrapper {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	z-index: 500;
+	background: rgba(0,0,0,0.3);
+}
+
+.header {
+	position: relative;
+	padding: 15px;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.close {
+	opacity: 0.3;
+	right: 13px;
+	top: 14px;
+	position: absolute;
+	transition: .3s ease;
+	background: none;
+	border: none;
+}
+
+.close:hover {
+	opacity: .8;
+	cursor: pointer;
+	transform: scale(1.2);
+}

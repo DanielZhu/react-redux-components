@@ -10,7 +10,10 @@ class DialogContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.praq = '';
+    this.close = this.close.bind(this);
+    this.state = {
+      state: 'closed',
+    };
   }
 
   componentDidMount() {
@@ -18,15 +21,21 @@ class DialogContainer extends React.Component {
     this.props.actions.registerDialog(this.props.id);
   }
 
+  close() {
+    this.props.actions.closeDialog(this.props.id);
+  }
+
   render() {
     const dialog = this.props.dialog.items.filter(item => item.id === this.props.id)[0];
-    if (!dialog) return null;
+    if (!dialog || !dialog.open) return null;
 
     return (
       <div>
 
         <Dialog
+          id={this.props.id}
           open={dialog.open}
+          close={this.close}
           children={this.props.children}
         />
 
