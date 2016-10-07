@@ -1,4 +1,4 @@
-export const ADD_NOTIFY = 'ADD_NOTIFY';
-export const REMOVE_NOTIFY = 'REMOVE_NOTIFY';
-export const START_CLOSING = 'START_CLOSING';
-export const CLOSE_ALL = 'CLOSE_ALL';
+export const RRC_NOTIFY_OPEN = 'RRC_NOTIFY_OPEN';
+export const RRC_NOTIFY_CLOSE = 'RRC_NOTIFY_CLOSE';
+export const RRC_NOTIFY_DESTROY = 'RRC_NOTIFY_DESTROY';
+export const RRC_NOTIFY_CLOSE_ALL = 'RRC_NOTIFY_CLOSE_ALL';

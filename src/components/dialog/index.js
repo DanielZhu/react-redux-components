@@ -20,6 +20,7 @@ class DialogContainer extends React.Component {
 
   render() {
     const dialog = this.props.dialog.items.filter(item => item.id === this.props.id)[0];
+    if (!dialog) return null;
 
     return (
       <div>

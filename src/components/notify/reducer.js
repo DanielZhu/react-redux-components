@@ -1,4 +1,4 @@
-import { ADD_NOTIFY, REMOVE_NOTIFY, START_CLOSING, CLOSE_ALL } from './types';
+import { RRC_NOTIFY_OPEN, RRC_NOTIFY_CLOSE, RRC_NOTIFY_DESTROY, RRC_NOTIFY_CLOSE_ALL } from './types';
 
 const initialState = {
   items: [],
@@ -7,7 +7,7 @@ const initialState = {
 export default function notify(state = initialState, { type, payload }) {
   switch (type) {
 
-    case ADD_NOTIFY:
+    case RRC_NOTIFY_OPEN:
       return {
         ...state,
         items: state.items.concat({
@@ -18,13 +18,13 @@ export default function notify(state = initialState, { type, payload }) {
         }),
       };
 
-    case REMOVE_NOTIFY:
+    case RRC_NOTIFY_DESTROY:
       return {
         ...state,
         items: state.items.filter(item => item.id !== payload),
       };
 
-    case START_CLOSING:
+    case RRC_NOTIFY_CLOSE:
       return {
         ...state,
         items: state.items.map((item) => {
@@ -38,7 +38,7 @@ export default function notify(state = initialState, { type, payload }) {
         }),
       };
 
-    case CLOSE_ALL:
+    case RRC_NOTIFY_CLOSE_ALL:
       return {
         ...state,
         items: state.items.map(item => ({ ...item, closing: true })),

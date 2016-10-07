@@ -1,8 +1,8 @@
-import { ADD_NOTIFY, REMOVE_NOTIFY, START_CLOSING, CLOSE_ALL } from './types';
+import { RRC_NOTIFY_OPEN, RRC_NOTIFY_CLOSE, RRC_NOTIFY_DESTROY, RRC_NOTIFY_CLOSE_ALL } from './types';
 
 export function addNotify(msg, config) {
   return {
-    type: ADD_NOTIFY,
+    type: RRC_NOTIFY_OPEN,
     payload: {
       msg,
       config,
@@ -13,20 +13,20 @@ export function addNotify(msg, config) {
 
 export function destroy(id) {
   return {
-    type: REMOVE_NOTIFY,
+    type: RRC_NOTIFY_DESTROY,
     payload: id,
   };
 }
 
 export function close(id) {
   return {
-    type: START_CLOSING,
+    type: RRC_NOTIFY_CLOSE,
     payload: id,
   };
 }
 
 export function closeAll() {
   return {
-    type: CLOSE_ALL,
+    type: RRC_NOTIFY_CLOSE_ALL,
   };
 }
