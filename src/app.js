@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as NotifyActions from './components/notify/actions';
 import * as DialogActions from './components/dialog/actions';
 
-import styles from './styles.css';
+import './styles.css';
 import Notify from './components/notify';
 import Dialog from './components/dialog';
 
@@ -26,7 +26,7 @@ const App = ({ actionsNotify, actionsDialog }) => (
     </Dialog>
 
 
-    <div className={styles.container}>
+    <div className="rrc-container">
       <button onClick={() => actionsNotify.addNotify('Olar!11! success', { delay: 100000, type: 'success' })}>
         Open notify success
       </button>
@@ -38,17 +38,11 @@ const App = ({ actionsNotify, actionsDialog }) => (
       </button>
       <br />
       <button onClick={() => actionsDialog.openDialog('dialog1')}>
-        Open Dialog
-      </button>
-      <button onClick={() => actionsDialog.closeDialog('dialog1')}>
-        Close Dialog
+        Open Dialog One
       </button>
       <br />
       <button onClick={() => actionsDialog.openDialog('dialog2')}>
-        Open Dialog2
-      </button>
-      <button onClick={() => actionsDialog.closeDialog('dialog2')}>
-        Close Dialog2
+        Open Dialog Two
       </button>
     </div>
   </div>

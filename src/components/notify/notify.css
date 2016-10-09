@@ -1,69 +1,69 @@
-.notify {
+.rrc-notify {
 	position: absolute;
 	right: 15px;
 	top: 15px;
-}
+  .rrc-notify-item {
+    background: #ecf0f1;
+    position: relative;
+    width: 250px;
+    border-radius: 6px;
+    box-shadow: 5px 1px 5px rgba(0,0,0,.1);
+    margin-bottom: 15px;
+    transition: all 0.4s ease-out;
+    opacity: 0;
+    transform: translateY(-200%);
+    overflow: hidden;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+  }
 
-.item {
-	background: #ecf0f1;
-	position: relative;
-	width: 250px;
-	border-radius: 6px;
-	box-shadow: 5px 1px 5px rgba(0,0,0,.1);
-	margin-bottom: 15px;
-	transition: all 0.4s ease-out;
-	opacity: 0;
-	transform: translateY(-200%);
-	overflow: hidden;
-	padding: 5px 20px;
-	display: flex;
-	align-items: center;
-}
+  .rrc-notify-item button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
 
-.item button {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	border: none;
-	background: none;
-	cursor: pointer;
-}
+  .rrc-notify-item button svg {
+    opacity: 0.2;
+    transition: .3s ease;
+  }
 
-.item button svg {
-	opacity: 0.2;
-	transition: .3s ease;
-}
-
-.item button:hover svg {
-	opacity: 0.6;
-	transform: rotate(360deg) scale(1.1);
-}
+  .rrc-notify-item button:hover svg {
+    opacity: 0.6;
+    transform: rotate(360deg) scale(1.1);
+  }
 
 
-.item.opened {
-	transform: translateY(0);
-	opacity: 1;
+  .rrc-notify-item.rrc-notify-item-opened {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .rrc-notify-item.rrc-notify-item-closing {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+
+  .rrc-icon {
+    display: inline-block;
+    padding-right: 10px;
+  }
+
+  .rrc-msg {
+    font-family: 'Arial';
+    padding: 15px 0;
+  }
+
+  .rrc-notify-item-success .msg, .rrc-notify-item-success .rrc-icon {
+    color: green;
+  }
+
+  .rrc-notify-item-error .msg, .rrc-notify-item-error .rrc-icon {
+    color: red;
+  }
 }
 
-.item.closing {
-	opacity: 0;
-	transform: translateY(-200%);
-}
-
-.icon {
-  display: inline-block;
-  padding-right: 10px;
-}
-
-.msg {
-  font-family: 'Arial';
-  padding: 15px 0;
-}
-
-.success .msg, .success .icon {
-  color: green;
-}
-
-.error .msg, .error .icon {
-  color: red;
-}

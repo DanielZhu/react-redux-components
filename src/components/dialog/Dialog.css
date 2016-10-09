@@ -1,16 +1,17 @@
-.container {
+.rrc-dialog-container {
 	position: absolute;
 	z-index: 510;
 	width: 500px;
 	background: #ecf0f1;
 }
 
-.wrapper {
+.rrc-dialog-wrapper {
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
 	align-items: center;
 	display: flex;
+  overflow: hidden;
 	justify-content: center;
 	top: 0;
 	left: 0;
@@ -18,13 +19,13 @@
 	background: rgba(0,0,0,0.3);
 }
 
-.header {
+.rrc-dialog-header {
 	position: relative;
 	padding: 15px;
 	border-bottom: 1px solid #dbdbdb;
 }
 
-.close {
+.rrc-dialog-close {
 	opacity: 0.3;
 	right: 13px;
 	top: 14px;
@@ -34,8 +35,26 @@
 	border: none;
 }
 
-.close:hover {
+.rrc-dialog-close:hover {
 	opacity: .8;
 	cursor: pointer;
 	transform: scale(1.2);
+}
+
+.dialog-enter {
+  opacity: 0.01;
+}
+
+.dialog-enter.dialog-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.dialog-leave {
+  opacity: 1;
+}
+
+.dialog-leave.dialog-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
