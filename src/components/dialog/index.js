@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as Actions from './actions';
+import ReactTransition from 'react-addons-css-transition-group';
 
+import * as Actions from './actions';
 import Dialog from './Dialog.js';
 
 
@@ -17,7 +18,6 @@ class DialogContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('did mount', this.props);
     this.props.actions.registerDialog(this.props.id);
   }
 
@@ -26,18 +26,23 @@ class DialogContainer extends React.Component {
   }
 
   render() {
-    const dialog = this.props.dialog.items.filter(item => item.id === this.props.id)[0];
-    if (!dialog || !dialog.open) return null;
+    const dialog = this.props.dialog.items.filter(item => item.id === this.props.id);
 
     return (
       <div>
-
-        <Dialog
-          id={this.props.id}
-          open={dialog.open}
-          close={this.close}
-          children={this.props.children}
-        />
+        <ReactTransition
+          transitionName="dialog"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {dialog.map(({ id, open }) => <Dialog
+            id={id}
+            key={new Date().getTime() + id}
+            open={open}
+            close={this.close}
+            children={this.props.children}
+          />)}
+        </ReactTransition>
 
       </div>
     );

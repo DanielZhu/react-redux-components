@@ -1,39 +1,43 @@
 import React from 'react';
-import styles from './Dialog.css';
+import './Dialog.css';
 import CloseIcon from '../../icons/close';
 
 
 const Header = ({ title, close }) => (
-  <div className={styles.header}>
+  <div className="rrc-dialog-header">
     {title}
-    <button className={styles.close} onClick={close}>
+    <button className="rrc-dialog-close" onClick={close}>
       <CloseIcon width={20} height={20} />
     </button>
   </div>
 );
 
 const Footer = ({ title }) => (
-  <div className={styles.footer}>
+  <div className="rrc-dialog-footer">
     {title}
   </div>
 );
 
 const Wrapper = ({ children }) => (
-  <div className={styles.wrapper}>
+  <div className="rrc-dialog-wrapper">
     {children}
   </div>
 );
 
-const Dialog = ({ children, close }) => (
-  <Wrapper onCLick={close}>
-    <div className={styles.container}>
-      <Header title="Header" close={close} />
+const Dialog = ({ children, close, open }) => {
+  if (!open) return null;
 
-      {children} <br />
+  return (
+    <Wrapper onCLick={close}>
+      <div className="rrc-dialog-container">
+        <Header title="Header" close={close} />
 
-      <Footer title="Footer" />
-    </div>
-  </Wrapper>
-);
+        {children} <br />
+
+        <Footer title="Footer" />
+      </div>
+    </Wrapper>
+  );
+};
 
 export default Dialog;

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as NotifyActions from './actions';
 
-import styles from './notify.css';
+import './notify.css';
 import Single from './Notify';
 
 const Notify = ({ notify, actions }) =>
-  <div className={styles.notify}>
+  <div className="rrc-notify">
 
     {notify.items.map(({ id, msg, config, closing }) => {
       const props = {

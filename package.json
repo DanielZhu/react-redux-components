@@ -1,6 +1,6 @@
 {
   "name": "react-redux-components",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Simple react components for usage with redux",
   "main": "src/index.js",
   "scripts": {
@@ -31,11 +31,12 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
     "redux": "^3.6.0",
     "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0",
-    "react-redux": "^4.4.5"
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -73,6 +74,8 @@
     "karma-webpack": "^1.8.0",
     "mocha": "^3.1.0",
     "nodemon": "^1.10.2",
+    "postcss-loader": "^0.13.0",
+    "postcss-nested": "^1.0.0",
     "react-addons-test-utils": "^15.3.2",
     "style-loader": "^0.13.1",
     "webpack": "2.1.0-beta.22",

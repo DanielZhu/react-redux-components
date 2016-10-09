@@ -1,7 +1,19 @@
 import { RRC_DIALOG_OPEN, RRC_DIALOG_CLOSE, RRC_DIALOG_REGISTER } from './types';
 
+function checkExistingDialog(items, { id }) {
+  if (!items.length) return false;
+  return items.filter(item => item.id === id).length;
+}
 
-export default function dialog(state = { items: [] }, { type, payload }) {
+const initialState = {
+  items: [{
+    id: 'dialog1',
+    open: false,
+  }],
+};
+
+
+export default function dialog(state = initialState, { type, payload }) {
   switch (type) {
 
     case RRC_DIALOG_OPEN: {
@@ -34,11 +46,13 @@ export default function dialog(state = { items: [] }, { type, payload }) {
         }),
       };
 
-    case RRC_DIALOG_REGISTER:
+    case RRC_DIALOG_REGISTER: {
+      if (checkExistingDialog(state.items, payload)) return state;
       return {
         ...state,
         items: [].concat(state.items).concat(payload),
       };
+    }
 
     default:
       return state;
